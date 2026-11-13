@@ -159,6 +159,100 @@ body.theme-green .section-alt{background:#e8f6ee}
 .check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--blue-500);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
 .analyse-note{margin-top:28px;font-size:.95rem;font-style:italic;color:var(--gray-500)}
 
+/* ============ SCREENSHOT PREVIEW (product) ============ */
+.screenshot-wrap{position:relative;max-width:980px;margin:0 auto}
+.screenshot-frame{
+  background:var(--white);
+  border:1px solid var(--gray-300);
+  border-radius:16px;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  transition:transform var(--transition),box-shadow var(--transition);
+}
+.screenshot-frame:hover{transform:translateY(-4px);box-shadow:0 28px 64px rgba(11,61,44,.22)}
+/* Fake browser bar */
+.screenshot-bar{
+  display:flex;align-items:center;gap:8px;
+  background:#eef3f0;
+  padding:12px 16px;
+  border-bottom:1px solid var(--gray-300);
+}
+body.theme-green .screenshot-bar{background:#e0f2e8;border-bottom-color:#c7e3d4}
+.screenshot-bar .dots{display:flex;gap:6px}
+.screenshot-bar .dots span{width:11px;height:11px;border-radius:50%;background:#cfd8d3}
+.screenshot-bar .dots span:nth-child(1){background:#ff6b6b}
+.screenshot-bar .dots span:nth-child(2){background:#ffd166}
+.screenshot-bar .dots span:nth-child(3){background:#3fbf85}
+.screenshot-bar .url{
+  flex:1;
+  background:var(--white);
+  border:1px solid var(--gray-300);
+  border-radius:6px;
+  padding:5px 12px;
+  font-size:12.5px;
+  color:var(--gray-500);
+  font-family:'Inter',monospace;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.screenshot-bar .url::before{
+  content:"🔒";
+  margin-right:6px;
+  font-size:11px;
+}
+/* ==== SCREENSHOT IMAGE — REMPLACE CE BLOC ==== */
+.screenshot-image{
+  position:relative;
+  aspect-ratio:16/10;
+  background:
+    linear-gradient(135deg, #f1fbf6 0%, #e8f6ee 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+body.theme-green .screenshot-image{
+  background:linear-gradient(135deg,#f1fbf6 0%,#e8f6ee 100%);
+}
+.screenshot-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.screenshot-placeholder{
+  text-align:center;
+  color:#6b7c74;
+  padding:40px;
+  border:2px dashed #a8e2c6;
+  border-radius:12px;
+  margin:32px;
+  width:calc(100% - 64px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+.screenshot-placeholder .sp-icon{font-size:42px;line-height:1;opacity:.7}
+.screenshot-placeholder .sp-title{font-size:1.05rem;font-weight:700;color:#146b4a}
+.screenshot-placeholder .sp-hint{font-size:.85rem;line-height:1.5;max-width:340px}
+.screenshot-placeholder code{
+  background:rgba(20,107,74,.08);
+  color:#146b4a;
+  padding:2px 8px;
+  border-radius:5px;
+  font-size:.82rem;
+  font-family:ui-monospace,monospace;
+}
+.screenshot-caption{
+  text-align:center;
+  margin-top:20px;
+  font-size:.9rem;
+  color:var(--gray-500);
+  font-style:italic;
+}
+
 /* ============ INSTALL BANNER (product only) ============ */
 .install-banner{background:linear-gradient(135deg,#146b4a,#0b3d2c);color:var(--white);border-radius:var(--radius);padding:48px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;position:relative;overflow:hidden}
 .install-banner::after{content:"";position:absolute;width:320px;height:320px;background:radial-gradient(circle,rgba(63,191,133,.28),transparent 70%);right:-100px;top:-100px;border-radius:50%}
@@ -216,6 +310,7 @@ body.theme-green .footer-copy{color:#7fa895}
 .stats{grid-template-columns:1fr 1fr}
 .steps{grid-template-columns:1fr;gap:36px}
 .split{grid-template-columns:1fr;gap:32px}
+.screenshot-placeholder{margin:20px;width:calc(100% - 40px);padding:28px 20px}
 }
 @media(max-width:768px){
 .nav-links{position:fixed;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--white);border-bottom:1px solid var(--gray-300);padding:16px 24px 24px;gap:4px;box-shadow:var(--shadow-md);transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity var(--transition),transform var(--transition)}
@@ -253,7 +348,6 @@ section.block{padding:64px 0}
 <ul class="nav-links" id="navLinks">
 <li><button data-nav="home">Home</button></li>
 <li><button data-nav="product">Dionea</button></li>
-<!-- Le lien GitHub n'apparaît que sur la page produit (voir vue product) -->
 </ul>
 </nav>
 </div>
@@ -473,6 +567,45 @@ Built for SMEs, associations, and public institutions.
 </div>
 </section>
 
+<!-- ============ SCREENSHOT PREVIEW ============ -->
+<section class="block" id="preview">
+<div class="container">
+<div class="section-head reveal" style="text-align:center;max-width:720px;margin-left:auto;margin-right:auto">
+<div class="section-label">Preview</div>
+<h2>See Dionea in action.</h2>
+<p>A look at the Dionea interface — automated analysis results, flagged threats, and what your team sees.</p>
+</div>
+
+<div class="screenshot-wrap reveal">
+<div class="screenshot-frame">
+  <!-- Barre navigateur simulée -->
+  <div class="screenshot-bar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="url">dionea.phishield.lu/dashboard</div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- === EMPLACEMENT DU SCREENSHOT ===                     -->
+  <!-- Remplace tout le bloc <div class="screenshot-placeholder"> par : -->
+  <!--   <img src="dionea-preview.png" alt="Dionea dashboard preview"> -->
+  <!-- Le conteneur .screenshot-image gère déjà le ratio 16/10. -->
+  <!-- ===================================================== -->
+  <div class="screenshot-image">
+    <div class="screenshot-placeholder">
+      <div class="sp-icon">🖼️</div>
+      <div class="sp-title">Screenshot placeholder</div>
+      <div class="sp-hint">
+        Replace this block with<br>
+        <code>&lt;img src="dionea-preview.png" alt="Dionea preview"&gt;</code>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="screenshot-caption">Dionea dashboard — email analysis overview (illustrative).</p>
+</div>
+</div>
+</section>
+
 <!-- TARGET CUSTOMERS -->
 <section class="block section-alt">
 <div class="container">
@@ -608,9 +741,7 @@ product: document.getElementById('view-product')
 function showView(name){
 Object.values(views).forEach(v=>v.classList.remove('active'));
 if(views[name]) views[name].classList.add('active');
-// Bascule la couleur du thème : vert pour le produit, bleu pour le reste
 document.body.classList.toggle('theme-green', name === 'product');
-// Met à jour le title
 document.title = name === 'product'
 ? 'Dionea — Phishield anti‑phishing tool'
 : 'Phishield — Anti‑phishing protection';
