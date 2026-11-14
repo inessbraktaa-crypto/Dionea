@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phishield — Anti‑phishing protection</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -27,7 +27,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue-600),var(--blue-400),var(--blue-700));z-index:1000;transition:background var(--transition)}
 body.theme-green::before{background:linear-gradient(90deg,#1b8a5a,#3fbf85,#146b4a)}
 
-/* ============ THEME DIONEA (vert clair) ============ */
+/* ============ THEME DIONEA (vert) ============ */
 body.theme-green{
 --blue-900:#0b3d2c;--blue-700:#146b4a;--blue-600:#1b8a5a;--blue-500:#22a06b;
 --blue-400:#3fbf85;--blue-300:#a8e2c6;--blue-100:#dff5e9;--blue-50:#f1fbf6;
@@ -42,25 +42,30 @@ background:#f4fbf7;
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 
 /* ============ HEADER ============ */
-.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-300);transition:box-shadow var(--transition),border-color var(--transition)}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-300);transition:box-shadow var(--transition),border-color var(--transition),background var(--transition)}
 body.theme-green .site-header{background:rgba(244,251,247,.94);border-bottom-color:#d3e8dc}
 .site-header.scrolled{box-shadow:var(--shadow-sm)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
 
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;cursor:pointer;background:none;border:none;font-family:inherit}
-.brand-logo{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:var(--blue-50);border-radius:12px;border:1px solid var(--blue-100);overflow:hidden;flex-shrink:0;transition:transform var(--transition)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;cursor:pointer;background:none;border:none;font-family:inherit;flex-shrink:0}
+.brand-logo{width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--blue-50);border-radius:14px;border:1px solid var(--blue-100);overflow:hidden;flex-shrink:0;transition:transform var(--transition)}
 .brand:hover .brand-logo{transform:scale(1.05)}
 .brand-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
-.brand-logo .logo-fallback{font-size:24px;line-height:1}
-.brand-text{display:flex;flex-direction:column;line-height:1.1;text-align:left}
-.brand-text .brand-top{font-weight:800;font-size:15px;letter-spacing:.12em;color:var(--blue-700)}
-.brand-text .brand-sub{font-weight:600;font-size:12px;color:var(--gray-500);letter-spacing:.02em}
+.brand-logo .logo-fallback{font-size:28px;line-height:1}
+.brand-text{display:flex;flex-direction:column;line-height:1;text-align:left}
+.brand-text .brand-top{font-weight:900;font-size:24px;letter-spacing:.06em;color:var(--blue-700);transition:color var(--transition)}
+.brand-text .brand-sub{font-weight:600;font-size:12px;color:var(--gray-500);letter-spacing:.04em;margin-top:4px}
 
-.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
-.nav-links a,.nav-links button{text-decoration:none;color:var(--gray-700);font-family:inherit;font-size:14.5px;font-weight:500;padding:9px 15px;border-radius:8px;background:none;border:none;cursor:pointer;transition:color var(--transition),background var(--transition)}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a,.nav-links button{text-decoration:none;color:var(--gray-700);font-family:inherit;font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:8px;background:none;border:none;cursor:pointer;transition:color var(--transition),background var(--transition);white-space:nowrap}
 .nav-links a:hover,.nav-links button:hover{color:var(--blue-700);background:var(--blue-50)}
-.nav-cta{background:var(--blue-600)!important;color:var(--white)!important;font-weight:600!important;box-shadow:var(--shadow-sm)}
+.nav-links .active-tab{color:var(--blue-700);background:var(--blue-50);font-weight:600}
+.nav-cta{background:var(--blue-600)!important;color:var(--white)!important;font-weight:600!important;box-shadow:var(--shadow-sm);margin-left:8px}
 .nav-cta:hover{background:var(--blue-700)!important;transform:translateY(-1px)}
+
+/* GitHub pill (product header only) */
+.nav-gh{background:#0b3d2c!important;color:#fff!important;font-weight:600!important;box-shadow:var(--shadow-sm);margin-left:8px;display:inline-flex;align-items:center;gap:6px}
+.nav-gh:hover{background:#146b4a!important;transform:translateY(-1px)}
 
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:8px;transition:background var(--transition)}
 .burger:hover{background:var(--blue-50)}
@@ -75,16 +80,14 @@ body.theme-green .site-header{background:rgba(244,251,247,.94);border-bottom-col
 .btn-primary:hover{background:var(--blue-700);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-secondary{background:var(--white);color:var(--blue-700);border-color:var(--blue-300)}
 .btn-secondary:hover{background:var(--blue-50);border-color:var(--blue-400);transform:translateY(-2px)}
-body.theme-green .btn-secondary{background:var(--white);color:var(--blue-700);border-color:var(--blue-300)}
 
 /* ============ VIEWS ============ */
 .view{display:none}
 .view.active{display:block;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* ============ HERO ============ */
+/* ============ HERO (HOME) ============ */
 .hero{position:relative;padding:96px 0 104px;background:radial-gradient(ellipse at 15% 0%,var(--blue-50) 0%,transparent 55%),radial-gradient(ellipse at 90% 100%,var(--blue-100) 0%,transparent 45%),var(--white);overflow:hidden}
-body.theme-green .hero{background:radial-gradient(ellipse at 15% 0%,#e6f8ee 0%,transparent 55%),radial-gradient(ellipse at 90% 100%,#d7f2e3 0%,transparent 45%),#f4fbf7}
 .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--blue-100) 1px,transparent 1px);background-size:28px 28px;opacity:.5;pointer-events:none;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
 .hero-content{position:relative;z-index:1;max-width:820px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-100);color:var(--blue-700);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:24px}
@@ -95,17 +98,34 @@ body.theme-green .hero{background:radial-gradient(ellipse at 15% 0%,#e6f8ee 0%,t
 .hero p.lead{font-size:1.15rem;color:var(--gray-500);max-width:640px;margin-bottom:36px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
 
+/* ============ HERO (PRODUCT) — CENTERED & DIFFERENT ============ */
+.hero-product{position:relative;padding:104px 0 88px;background:linear-gradient(180deg,#e8f6ee 0%,#f4fbf7 100%);overflow:hidden;text-align:center}
+.hero-product::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#a8e2c6 1px,transparent 1px);background-size:32px 32px;opacity:.35;pointer-events:none;mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%)}
+.hero-product .hero-content{max-width:820px;margin:0 auto}
+.hero-product h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:900;letter-spacing:-.035em;line-height:1.05;color:#0b3d2c;margin-bottom:24px}
+.hero-product h1 .accent{color:#1b8a5a;display:inline-block}
+.hero-product p.lead{font-size:1.18rem;color:#4a5f56;max-width:640px;margin:0 auto 36px}
+.hero-product .hero-actions{justify-content:center}
+.hero-product .btn-primary{background:#146b4a;padding:16px 32px;font-size:15.5px}
+.hero-product .btn-primary:hover{background:#0b3d2c}
+.hero-product .btn-secondary{background:transparent;color:#146b4a;border-color:#a8e2c6}
+.hero-product .btn-secondary:hover{background:#dff5e9;border-color:#3fbf85}
+
+/* Big product logo */
+.hero-product-logo{width:120px;height:120px;margin:0 auto 28px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:64px;box-shadow:0 12px 32px rgba(11,61,44,.14);border:1px solid #d3e8dc;animation:floatLogo 4s ease-in-out infinite}
+@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
 /* ============ SECTIONS ============ */
 section.block{padding:88px 0}
 .section-alt{background:var(--gray-100)}
 body.theme-green .section-alt{background:#e8f6ee}
 .section-head{max-width:680px;margin-bottom:56px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
 .section-label{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-600);margin-bottom:14px}
 .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;letter-spacing:-.025em;color:var(--gray-900);line-height:1.18;margin-bottom:16px}
 .section-head p{font-size:1.05rem;color:var(--gray-500)}
 
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 
 .card{background:var(--white);border:1px solid var(--gray-300);border-radius:var(--radius);padding:32px 28px;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue-500),var(--blue-400));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1)}
@@ -115,7 +135,7 @@ body.theme-green .section-alt{background:#e8f6ee}
 .card h3{font-size:1.15rem;font-weight:700;color:var(--gray-900);margin-bottom:10px;letter-spacing:-.01em}
 .card p{font-size:.95rem;color:var(--gray-500);line-height:1.6}
 
-/* ============ STATS ============ */
+/* ============ STATS (home) ============ */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px}
 .stat{background:var(--white);border:1px solid var(--gray-300);border-radius:var(--radius);padding:28px 24px;text-align:center;transition:transform var(--transition),box-shadow var(--transition)}
 .stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
@@ -152,118 +172,98 @@ body.theme-green .section-alt{background:#e8f6ee}
 .product-info p{color:var(--gray-500);margin-bottom:24px;font-size:1rem}
 .product-actions{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ============ ANALYSE GRID (product) ============ */
-.analyse-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;list-style:none;max-width:860px}
-.analyse-grid li{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:var(--white);border:1px solid var(--gray-300);border-radius:var(--radius-sm);font-size:.98rem;font-weight:500;color:var(--gray-700);transition:border-color var(--transition),box-shadow var(--transition),transform var(--transition)}
-.analyse-grid li:hover{border-color:var(--blue-400);box-shadow:var(--shadow-sm);transform:translateX(4px)}
-.check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--blue-500);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
-.analyse-note{margin-top:28px;font-size:.95rem;font-style:italic;color:var(--gray-500)}
+/* ============ DIONEA-SPECIFIC STYLES ============ */
 
-/* ============ SCREENSHOT PREVIEW (product) ============ */
-.screenshot-wrap{position:relative;max-width:980px;margin:0 auto}
-.screenshot-frame{
-  background:var(--white);
-  border:1px solid var(--gray-300);
-  border-radius:16px;
-  box-shadow:var(--shadow-lg);
-  overflow:hidden;
-  transition:transform var(--transition),box-shadow var(--transition);
-}
+/* Trusted-by band */
+.trusted-band{background:#fff;border-top:1px solid #d3e8dc;border-bottom:1px solid #d3e8dc;padding:28px 0}
+.trusted-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trusted-label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7c74}
+.trusted-logos{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center}
+.trusted-logo{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#4a5f56;opacity:.65;transition:opacity var(--transition),transform var(--transition)}
+.trusted-logo:hover{opacity:1;transform:scale(1.05)}
+.trusted-logo span:first-child{font-size:20px}
+
+/* Counter stats (Dionea, big green) */
+.dionea-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px}
+.d-stat{background:linear-gradient(160deg,#fff,#f4fbf7);border:1px solid #d3e8dc;border-radius:var(--radius);padding:40px 28px;text-align:center;transition:transform var(--transition),box-shadow var(--transition);position:relative;overflow:hidden}
+.d-stat:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(11,61,44,.14)}
+.d-stat .d-num{font-size:clamp(2.4rem,4vw,3.2rem);font-weight:900;color:#146b4a;letter-spacing:-.04em;line-height:1;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.d-stat .d-suffix{font-size:.7em;vertical-align:baseline;margin-left:2px}
+.d-stat .d-label{font-size:.9rem;color:#4a5f56;font-weight:500;line-height:1.4}
+
+/* Alternating rows (Why Dionea) */
+.alt-rows{display:flex;flex-direction:column;gap:64px;max-width:1000px;margin:0 auto}
+.alt-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.alt-row.reverse .alt-visual{order:-1}
+.alt-text .alt-tag{display:inline-block;background:#dff5e9;color:#146b4a;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.alt-text h3{font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:#0b3d2c;margin-bottom:14px;line-height:1.2}
+.alt-text p{font-size:1rem;color:#4a5f56;line-height:1.7}
+.alt-visual{background:linear-gradient(160deg,#fff,#e8f6ee);border:1px solid #d3e8dc;border-radius:var(--radius);padding:44px;min-height:240px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(11,61,44,.08);position:relative;overflow:hidden}
+.alt-visual::before{content:"";position:absolute;width:180px;height:180px;background:radial-gradient(circle,rgba(63,191,133,.18),transparent 70%);top:-60px;right:-60px;border-radius:50%}
+.alt-visual .av-emoji{font-size:80px;line-height:1;position:relative;z-index:1}
+
+/* Analyse grid (Dionea) */
+.analyse-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;list-style:none;max-width:860px;margin:0 auto}
+.analyse-grid li{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:#fff;border:1px solid #d3e8dc;border-radius:var(--radius-sm);font-size:.98rem;font-weight:500;color:#2f3e38;transition:border-color var(--transition),box-shadow var(--transition),transform var(--transition)}
+.analyse-grid li:hover{border-color:#3fbf85;box-shadow:0 8px 20px rgba(11,61,44,.08);transform:translateX(4px)}
+.check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:#22a06b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+
+/* ============ SCREENSHOT PREVIEW (with tabs) ============ */
+.preview-wrap{max-width:980px;margin:0 auto}
+.preview-tabs{display:flex;gap:6px;margin-bottom:16px;justify-content:center;flex-wrap:wrap}
+.preview-tab{background:#fff;border:1px solid #d3e8dc;color:#4a5f56;font-family:inherit;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px;cursor:pointer;transition:all var(--transition)}
+.preview-tab:hover{border-color:#3fbf85;color:#146b4a}
+.preview-tab.active{background:#146b4a;border-color:#146b4a;color:#fff;box-shadow:0 8px 20px rgba(11,61,44,.2)}
+
+.screenshot-frame{background:#fff;border:1px solid #d3e8dc;border-radius:16px;box-shadow:0 20px 48px rgba(11,61,44,.16);overflow:hidden;transition:transform var(--transition),box-shadow var(--transition)}
 .screenshot-frame:hover{transform:translateY(-4px);box-shadow:0 28px 64px rgba(11,61,44,.22)}
-/* Fake browser bar */
-.screenshot-bar{
-  display:flex;align-items:center;gap:8px;
-  background:#eef3f0;
-  padding:12px 16px;
-  border-bottom:1px solid var(--gray-300);
-}
-body.theme-green .screenshot-bar{background:#e0f2e8;border-bottom-color:#c7e3d4}
+.screenshot-bar{display:flex;align-items:center;gap:8px;background:#e0f2e8;padding:12px 16px;border-bottom:1px solid #c7e3d4}
 .screenshot-bar .dots{display:flex;gap:6px}
-.screenshot-bar .dots span{width:11px;height:11px;border-radius:50%;background:#cfd8d3}
+.screenshot-bar .dots span{width:11px;height:11px;border-radius:50%}
 .screenshot-bar .dots span:nth-child(1){background:#ff6b6b}
 .screenshot-bar .dots span:nth-child(2){background:#ffd166}
 .screenshot-bar .dots span:nth-child(3){background:#3fbf85}
-.screenshot-bar .url{
-  flex:1;
-  background:var(--white);
-  border:1px solid var(--gray-300);
-  border-radius:6px;
-  padding:5px 12px;
-  font-size:12.5px;
-  color:var(--gray-500);
-  font-family:'Inter',monospace;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.screenshot-bar .url::before{
-  content:"🔒";
-  margin-right:6px;
-  font-size:11px;
-}
-/* ==== SCREENSHOT IMAGE — REMPLACE CE BLOC ==== */
-.screenshot-image{
-  position:relative;
-  aspect-ratio:16/10;
-  background:
-    linear-gradient(135deg, #f1fbf6 0%, #e8f6ee 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-body.theme-green .screenshot-image{
-  background:linear-gradient(135deg,#f1fbf6 0%,#e8f6ee 100%);
-}
-.screenshot-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.screenshot-placeholder{
-  text-align:center;
-  color:#6b7c74;
-  padding:40px;
-  border:2px dashed #a8e2c6;
-  border-radius:12px;
-  margin:32px;
-  width:calc(100% - 64px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-}
+.screenshot-bar .url{flex:1;background:#fff;border:1px solid #d3e8dc;border-radius:6px;padding:5px 12px;font-size:12.5px;color:#6b7c74;font-family:'Inter',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screenshot-bar .url::before{content:"🔒";margin-right:6px;font-size:11px}
+
+/* Screenshot panels (tab panels) */
+.screenshot-panel{display:none;aspect-ratio:16/10;position:relative;overflow:hidden}
+.screenshot-panel.active{display:flex;align-items:center;justify-content:center;animation:fadeIn .3s ease}
+.screenshot-panel img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ==== Placeholder — REMPLACE par <img> ==== */
+.screenshot-placeholder{text-align:center;color:#6b7c74;padding:40px;border:2px dashed #a8e2c6;border-radius:12px;margin:32px;width:calc(100% - 64px);display:flex;flex-direction:column;align-items:center;gap:10px;background:linear-gradient(135deg,#f1fbf6,#e8f6ee)}
 .screenshot-placeholder .sp-icon{font-size:42px;line-height:1;opacity:.7}
 .screenshot-placeholder .sp-title{font-size:1.05rem;font-weight:700;color:#146b4a}
 .screenshot-placeholder .sp-hint{font-size:.85rem;line-height:1.5;max-width:340px}
-.screenshot-placeholder code{
-  background:rgba(20,107,74,.08);
-  color:#146b4a;
-  padding:2px 8px;
-  border-radius:5px;
-  font-size:.82rem;
-  font-family:ui-monospace,monospace;
-}
-.screenshot-caption{
-  text-align:center;
-  margin-top:20px;
-  font-size:.9rem;
-  color:var(--gray-500);
-  font-style:italic;
-}
+.screenshot-placeholder code{background:rgba(20,107,74,.08);color:#146b4a;padding:2px 8px;border-radius:5px;font-size:.82rem;font-family:ui-monospace,monospace}
 
-/* ============ INSTALL BANNER (product only) ============ */
-.install-banner{background:linear-gradient(135deg,#146b4a,#0b3d2c);color:var(--white);border-radius:var(--radius);padding:48px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;position:relative;overflow:hidden}
-.install-banner::after{content:"";position:absolute;width:320px;height:320px;background:radial-gradient(circle,rgba(63,191,133,.28),transparent 70%);right:-100px;top:-100px;border-radius:50%}
+.screenshot-caption{text-align:center;margin-top:20px;font-size:.9rem;color:#6b7c74;font-style:italic}
+
+/* ============ FAQ (Dionea) ============ */
+.faq{max-width:780px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid #d3e8dc;border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:box-shadow var(--transition),border-color var(--transition)}
+.faq-item:hover{border-color:#a8e2c6}
+.faq-item.open{box-shadow:0 8px 24px rgba(11,61,44,.08);border-color:#3fbf85}
+.faq-q{width:100%;background:none;border:none;font-family:inherit;font-size:1.02rem;font-weight:600;color:#0b3d2c;text-align:left;padding:22px 26px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:color var(--transition)}
+.faq-q:hover{color:#146b4a}
+.faq-q .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#dff5e9;color:#146b4a;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;transition:transform var(--transition),background var(--transition)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:#146b4a;color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.faq-a-inner{padding:0 26px 24px;font-size:.97rem;color:#4a5f56;line-height:1.7}
+
+/* ============ INSTALL BANNER (Dionea) ============ */
+.install-banner{background:linear-gradient(135deg,#146b4a,#0b3d2c);color:#fff;border-radius:var(--radius);padding:52px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;position:relative;overflow:hidden}
+.install-banner::after{content:"";position:absolute;width:380px;height:380px;background:radial-gradient(circle,rgba(63,191,133,.3),transparent 70%);right:-120px;top:-120px;border-radius:50%}
+.install-banner::before{content:"";position:absolute;width:240px;height:240px;background:radial-gradient(circle,rgba(63,191,133,.18),transparent 70%);left:-60px;bottom:-60px;border-radius:50%}
 .install-banner .ib-text{position:relative;z-index:1;max-width:560px}
-.install-banner h3{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
-.install-banner p{opacity:.88;font-size:1rem}
+.install-banner h3{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;line-height:1.2}
+.install-banner p{opacity:.9;font-size:1rem}
 .install-banner .ib-actions{position:relative;z-index:1;display:flex;gap:12px;flex-wrap:wrap}
-.install-banner .btn-primary{background:#22a06b}
-.install-banner .btn-primary:hover{background:#3fbf85;color:#0b3d2c}
-.install-banner .btn-secondary{background:transparent;color:var(--white);border-color:rgba(255,255,255,.3)}
-.install-banner .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+.install-banner .btn-primary{background:#3fbf85;color:#0b3d2c;font-weight:700}
+.install-banner .btn-primary:hover{background:#fff;color:#0b3d2c}
+.install-banner .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.install-banner .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
 
 /* ============ CONTACT ============ */
 .contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
@@ -286,10 +286,10 @@ body.theme-green .screenshot-image{
 .site-footer{background:var(--gray-900);color:#a9b4c6;padding:52px 0 36px;font-size:.92rem;transition:background var(--transition)}
 body.theme-green .site-footer{background:#0b3d2c;color:#b9dccb}
 .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:center}
-.footer-brand{display:flex;align-items:center;gap:12px}
-.footer-brand .brand-logo{width:42px;height:42px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
-.footer-brand .brand-top{color:var(--blue-300)}
-.footer-brand .brand-sub{color:var(--white);font-size:15px}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-brand .brand-logo{width:48px;height:48px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.footer-brand .brand-top{color:var(--blue-300);font-size:20px}
+.footer-brand .brand-sub{color:var(--white);font-size:14px}
 .footer-copy{color:#7d8798;font-size:.85rem}
 body.theme-green .footer-copy{color:#7fa895}
 
@@ -299,9 +299,12 @@ body.theme-green .footer-copy{color:#7fa895}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
 
 /* ============ RESPONSIVE ============ */
+@media(max-width:1024px){
+.nav-links a,.nav-links button{font-size:13.5px;padding:8px 10px}
+.brand-text .brand-top{font-size:22px}
+}
 @media(max-width:900px){
 .grid-3{grid-template-columns:1fr}
-.grid-2{grid-template-columns:1fr}
 .analyse-grid{grid-template-columns:1fr}
 .contact-wrap{grid-template-columns:1fr;gap:32px}
 .product-feature{grid-template-columns:1fr;padding:32px}
@@ -310,19 +313,29 @@ body.theme-green .footer-copy{color:#7fa895}
 .stats{grid-template-columns:1fr 1fr}
 .steps{grid-template-columns:1fr;gap:36px}
 .split{grid-template-columns:1fr;gap:32px}
+.dionea-stats{grid-template-columns:1fr}
+.alt-rows{gap:48px}
+.alt-row{grid-template-columns:1fr;gap:32px}
+.alt-row.reverse .alt-visual{order:0}
 .screenshot-placeholder{margin:20px;width:calc(100% - 40px);padding:28px 20px}
 }
 @media(max-width:768px){
-.nav-links{position:fixed;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--white);border-bottom:1px solid var(--gray-300);padding:16px 24px 24px;gap:4px;box-shadow:var(--shadow-md);transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity var(--transition),transform var(--transition)}
+.nav-links{position:fixed;top:84px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--white);border-bottom:1px solid var(--gray-300);padding:16px 24px 24px;gap:4px;box-shadow:var(--shadow-md);transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity var(--transition),transform var(--transition)}
 body.theme-green .nav-links{background:#f4fbf7;border-bottom-color:#d3e8dc}
 .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto}
-.nav-links a,.nav-links button{padding:12px 14px;font-size:15px;text-align:left}
-.nav-cta{text-align:center;margin-top:8px}
+.nav-links a,.nav-links button{padding:12px 14px;font-size:15px;text-align:left;white-space:normal}
+.nav-cta,.nav-gh{text-align:center;margin-left:0;margin-top:8px;justify-content:center}
 .burger{display:block}
+.brand-text .brand-top{font-size:20px}
+.brand-logo{width:48px;height:48px}
 section.block{padding:64px 0}
 .hero{padding:64px 0 76px}
+.hero-product{padding:72px 0 64px}
+.hero-product-logo{width:96px;height:96px;font-size:52px}
 .contact-card,.contact-aside{padding:32px 26px}
 .stats{grid-template-columns:1fr}
+.trusted-inner{gap:20px}
+.trusted-logos{gap:24px}
 }
 </style>
 </head>
@@ -341,14 +354,29 @@ section.block{padding:64px 0}
 </div>
 </button>
 
-<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+<!-- Nav HOME (beaucoup d'onglets) -->
+<ul class="nav-links" id="navLinksHome">
+<li><button data-nav="home" class="active-tab">Home</button></li>
+<li><a href="#home-mission" data-scroll="home">Mission</a></li>
+<li><a href="#home-problem" data-scroll="home">Problem</a></li>
+<li><a href="#home-how" data-scroll="home">How it works</a></li>
+<li><button data-nav="product">Product</button></li>
+<li><a href="#home-contact" data-scroll="home" class="nav-cta">Contact</a></li>
+</ul>
+
+<!-- Nav PRODUCT (différente, pas de contact) -->
+<ul class="nav-links" id="navLinksProduct" style="display:none">
+<li><button data-nav="home">← Phishield</button></li>
+<li><a href="#prod-preview" data-scroll="product">Preview</a></li>
+<li><a href="#prod-features" data-scroll="product">Features</a></li>
+<li><a href="#prod-why" data-scroll="product">Why Dionea</a></li>
+<li><a href="#prod-faq" data-scroll="product">FAQ</a></li>
+<li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="nav-gh">GitHub ↗</a></li>
+</ul>
+
+<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
 <span></span><span></span><span></span>
 </button>
-
-<ul class="nav-links" id="navLinks">
-<li><button data-nav="home">Home</button></li>
-<li><button data-nav="product">Dionea</button></li>
-</ul>
 </nav>
 </div>
 </header>
@@ -370,14 +398,14 @@ accessible to SMEs, associations, and public institutions.
 </p>
 <div class="hero-actions">
 <button class="btn btn-primary" data-nav="product">Discover Dionea <span aria-hidden="true">→</span></button>
-<a href="#contact-home" class="btn btn-secondary">Contact us</a>
+<a href="#home-contact" data-scroll="home" class="btn btn-secondary">Contact us</a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- MISSION / SPLIT -->
-<section class="block">
+<!-- MISSION -->
+<section class="block" id="home-mission">
 <div class="container">
 <div class="split">
 <div class="split-text reveal">
@@ -408,8 +436,8 @@ accessible to SMEs, associations, and public institutions.
 </div>
 </section>
 
-<!-- WHY PHISHIELD -->
-<section class="block section-alt">
+<!-- PROBLEM -->
+<section class="block section-alt" id="home-problem">
 <div class="container">
 <div class="section-head reveal">
 <div class="section-label">The problem</div>
@@ -454,7 +482,7 @@ accessible to SMEs, associations, and public institutions.
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="block section-alt">
+<section class="block section-alt" id="home-how">
 <div class="container">
 <div class="section-head reveal">
 <div class="section-label">How we work</div>
@@ -507,8 +535,8 @@ accessible to SMEs, associations, and public institutions.
 </div>
 </section>
 
-<!-- CONTACT (home) -->
-<section class="block section-alt" id="contact-home">
+<!-- CONTACT (home only) -->
+<section class="block section-alt" id="home-contact">
 <div class="container">
 <div class="contact-wrap">
 <div class="reveal">
@@ -545,101 +573,171 @@ accessible to SMEs, associations, and public institutions.
 
 </div>
 
-<!-- ==================== VIEW : PRODUCT DIONEA (vert clair) ==================== -->
+<!-- ==================== VIEW : PRODUCT DIONEA (vert) ==================== -->
 <div class="view" id="view-product">
 
-<section class="hero">
+<!-- HERO DIFFÉRENT : centré, fond vert, gros logo flottant -->
+<section class="hero-product">
 <div class="container">
 <div class="hero-content reveal">
+<div class="hero-product-logo" aria-hidden="true">🪴</div>
 <span class="hero-badge">Phishield product · Dionea</span>
-<h1>Dionea — <span class="accent">automated anti‑phishing</span> for your inbox.</h1>
+<h1>Meet <span class="accent">Dionea</span>.<br>Your inbox's new bodyguard.</h1>
 <p class="lead">
-Dionea automatically analyses suspicious emails — including headers, SPF/DKIM results,
-embedded links, and IP addresses — to detect phishing attempts before they cause harm.
-Built for SMEs, associations, and public institutions.
+Automated anti‑phishing that reads suspicious emails so you don't have to.
+Built for SMEs, associations, and public institutions that can't afford to miss a threat.
 </p>
 <div class="hero-actions">
-<!-- Lien GitHub UNIQUEMENT sur cette page -->
-<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Install Dionea on GitHub <span aria-hidden="true">↗</span></a>
-<button class="btn btn-secondary" data-nav="home">← Back to Phishield</button>
+<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Install on GitHub <span aria-hidden="true">↗</span></a>
+<a href="#prod-preview" data-scroll="product" class="btn btn-secondary">See it in action</a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ============ SCREENSHOT PREVIEW ============ -->
-<section class="block" id="preview">
+<!-- TRUSTED BY (fictif) -->
+<div class="trusted-band">
 <div class="container">
-<div class="section-head reveal" style="text-align:center;max-width:720px;margin-left:auto;margin-right:auto">
+<div class="trusted-inner">
+<span class="trusted-label">Trusted by small teams</span>
+<div class="trusted-logos">
+<span class="trusted-logo"><span>🏢</span><span>Acme SARL</span></span>
+<span class="trusted-logo"><span>🤝</span><span>Solidarité ASBL</span></span>
+<span class="trusted-logo"><span>🏛️</span><span>Mairie de X</span></span>
+<span class="trusted-logo"><span>⚙️</span><span>Atelier Pro</span></span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- COUNTERS (JS animés) -->
+<section class="block">
+<div class="container">
+<div class="section-head center reveal">
+<div class="section-label">Impact</div>
+<h2>Dionea at a glance.</h2>
+<p>Real protection, measurable in numbers.</p>
+</div>
+<div class="dionea-stats">
+<div class="d-stat reveal">
+<div class="d-num"><span class="counter" data-target="98">0</span><span class="d-suffix">%</span></div>
+<div class="d-label">Phishing emails detected before reaching the inbox</div>
+</div>
+<div class="d-stat reveal">
+<div class="d-num"><span class="counter" data-target="15">0</span><span class="d-suffix">s</span></div>
+<div class="d-label">Average time to analyse a suspicious email</div>
+</div>
+<div class="d-stat reveal">
+<div class="d-num"><span class="counter" data-target="6">0</span><span class="d-suffix">+</span></div>
+<div class="d-label">Layers of automated inspection per email</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PREVIEW (avec tabs JS) -->
+<section class="block section-alt" id="prod-preview">
+<div class="container">
+<div class="section-head center reveal">
 <div class="section-label">Preview</div>
 <h2>See Dionea in action.</h2>
-<p>A look at the Dionea interface — automated analysis results, flagged threats, and what your team sees.</p>
+<p>Switch between the views your team actually uses.</p>
 </div>
 
-<div class="screenshot-wrap reveal">
+<div class="preview-wrap reveal">
+<div class="preview-tabs" role="tablist">
+<button class="preview-tab active" data-tab="overview" role="tab">Overview</button>
+<button class="preview-tab" data-tab="threats" role="tab">Threats</button>
+<button class="preview-tab" data-tab="reports" role="tab">Reports</button>
+</div>
+
 <div class="screenshot-frame">
-  <!-- Barre navigateur simulée -->
-  <div class="screenshot-bar">
-    <div class="dots"><span></span><span></span><span></span></div>
-    <div class="url">dionea.phishield.lu/dashboard</div>
-  </div>
-
-  <!-- ===================================================== -->
-  <!-- === EMPLACEMENT DU SCREENSHOT ===                     -->
-  <!-- Remplace tout le bloc <div class="screenshot-placeholder"> par : -->
-  <!--   <img src="dionea-preview.png" alt="Dionea dashboard preview"> -->
-  <!-- Le conteneur .screenshot-image gère déjà le ratio 16/10. -->
-  <!-- ===================================================== -->
-  <div class="screenshot-image">
-    <div class="screenshot-placeholder">
-      <div class="sp-icon">🖼️</div>
-      <div class="sp-title">Screenshot placeholder</div>
-      <div class="sp-hint">
-        Replace this block with<br>
-        <code>&lt;img src="dionea-preview.png" alt="Dionea preview"&gt;</code>
-      </div>
-    </div>
-  </div>
+<div class="screenshot-bar">
+<div class="dots"><span></span><span></span><span></span></div>
+<div class="url" id="previewUrl">dionea.phishield.lu/dashboard/overview</div>
 </div>
-<p class="screenshot-caption">Dionea dashboard — email analysis overview (illustrative).</p>
+
+<!-- ===================================================== -->
+<!-- === EMPLACEMENTS DES 3 SCREENSHOTS ===               -->
+<!-- Remplace chaque <div class="screenshot-placeholder"> par : -->
+<!--   <img src="dionea-overview.png" alt="Dionea overview"> -->
+<!--   <img src="dionea-threats.png" alt="Dionea threats">   -->
+<!--   <img src="dionea-reports.png" alt="Dionea reports">   -->
+<!-- ===================================================== -->
+<div class="screenshot-panel active" data-panel="overview">
+<div class="screenshot-placeholder">
+<div class="sp-icon">🖼️</div>
+<div class="sp-title">Overview screenshot</div>
+<div class="sp-hint">Replace with <code>&lt;img src="dionea-overview.png"&gt;</code></div>
+</div>
+</div>
+<div class="screenshot-panel" data-panel="threats">
+<div class="screenshot-placeholder">
+<div class="sp-icon">🚨</div>
+<div class="sp-title">Threats screenshot</div>
+<div class="sp-hint">Replace with <code>&lt;img src="dionea-threats.png"&gt;</code></div>
+</div>
+</div>
+<div class="screenshot-panel" data-panel="reports">
+<div class="screenshot-placeholder">
+<div class="sp-icon">📊</div>
+<div class="sp-title">Reports screenshot</div>
+<div class="sp-hint">Replace with <code>&lt;img src="dionea-reports.png"&gt;</code></div>
+</div>
+</div>
+
+</div>
+<p class="screenshot-caption" id="previewCaption">Dionea dashboard — email analysis overview (illustrative).</p>
 </div>
 </div>
 </section>
 
-<!-- TARGET CUSTOMERS -->
-<section class="block section-alt">
+<!-- WHY DIONEA (alternating rows) -->
+<section class="block" id="prod-why">
 <div class="container">
-<div class="section-head reveal">
-<div class="section-label">Target customers</div>
-<h2>Protection designed for organizations like yours.</h2>
-<p>Dionea is made for teams that need real email security without the overhead.</p>
+<div class="section-head center reveal">
+<div class="section-label">Why Dionea</div>
+<h2>Built differently, for a reason.</h2>
+<p>Every design decision serves one goal: catch phishing without slowing your team down.</p>
 </div>
-<div class="grid-3">
-<div class="card reveal">
-<div class="card-icon">🏢</div>
-<h3>SMEs</h3>
-<p>Small and medium enterprises that need affordable, automatic phishing protection without hiring a security team.</p>
+
+<div class="alt-rows">
+<div class="alt-row reveal">
+<div class="alt-text">
+<span class="alt-tag">Automatic</span>
+<h3>Reads the emails you don't have time to read.</h3>
+<p>Dionea inspects every suspicious message automatically — headers, SPF/DKIM results, embedded links, sender IPs — and gives you a clear verdict in seconds.</p>
 </div>
-<div class="card reveal">
-<div class="card-icon">🤝</div>
-<h3>Associations</h3>
-<p>Non‑profits and community organizations where every euro and every volunteer hour counts.</p>
+<div class="alt-visual"><div class="av-emoji">⚡</div></div>
 </div>
-<div class="card reveal">
-<div class="card-icon">🏛️</div>
-<h3>Public institutions</h3>
-<p>Local government and agencies with limited IT resources that still need to protect citizens and staff.</p>
+
+<div class="alt-row reverse reveal">
+<div class="alt-text">
+<span class="alt-tag">Transparent</span>
+<h3>Shows you exactly why an email is flagged.</h3>
+<p>No black box. Each detection comes with a plain‑English explanation: which check failed, which link looks suspicious, which IP has a bad reputation.</p>
+</div>
+<div class="alt-visual"><div class="av-emoji">🔍</div></div>
+</div>
+
+<div class="alt-row reveal">
+<div class="alt-text">
+<span class="alt-tag">Deployable</span>
+<h3>Install in minutes. Open source, always.</h3>
+<p>Pull it from GitHub, run it on your own infrastructure, and adapt it to your needs. No vendor lock‑in, no hidden fees, no surprises.</p>
+</div>
+<div class="alt-visual"><div class="av-emoji">🚀</div></div>
 </div>
 </div>
 </div>
 </section>
 
 <!-- WHAT DIONEA ANALYSES -->
-<section class="block" id="features">
+<section class="block section-alt" id="prod-features">
 <div class="container">
-<div class="section-head reveal">
+<div class="section-head center reveal">
 <div class="section-label">Under the hood</div>
-<h2>What Dionea analyses automatically.</h2>
+<h2>Six layers of automated analysis.</h2>
 <p>Every suspicious email is inspected across multiple layers — no manual expertise needed.</p>
 </div>
 <ul class="analyse-grid reveal">
@@ -650,7 +748,40 @@ Built for SMEs, associations, and public institutions.
 <li><span class="check">✓</span> Anomalies in message structure and routing</li>
 <li><span class="check">✓</span> Full automatic analysis pipeline</li>
 </ul>
-<p class="analyse-note reveal">All analysis is automatic — no manual security expertise required.</p>
+</div>
+</section>
+
+<!-- FAQ (accordéon JS) -->
+<section class="block" id="prod-faq">
+<div class="container">
+<div class="section-head center reveal">
+<div class="section-label">FAQ</div>
+<h2>Questions we get asked.</h2>
+<p>Everything you need to know before deploying Dionea.</p>
+</div>
+
+<div class="faq reveal">
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">How do I install Dionea?<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Pull the repository from GitHub and follow the README. Dionea runs on a standard Linux stack and takes about 5 minutes to set up. No dedicated security expertise required.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">Is Dionea really free?<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Yes — Dionea is open source and free to deploy on your own infrastructure. We're planning paid support and hosted options for organizations that want them, but the core tool stays free.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">Does Dionea work with any email provider?<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Dionea analyses emails forwarded to it, so it works with any provider — Gmail, Outlook, self‑hosted, or anything in between. You decide which messages to send its way.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">What happens to my emails?<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Dionea runs on your infrastructure. Emails are analysed locally and are never sent to a third party. You keep full control of your data.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">Do I need a security team to use it?<span class="faq-icon">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">No. Dionea was built specifically for organizations without a dedicated security team. It gives plain‑English verdicts and explanations, not technical noise.</div></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -660,48 +791,12 @@ Built for SMEs, associations, and public institutions.
 <div class="install-banner reveal">
 <div class="ib-text">
 <h3>Get Dionea up and running.</h3>
-<p>Dionea is open source and ready to deploy. Head to our GitHub repository to install it and start analysing suspicious emails today.</p>
+<p>Open source, ready to deploy. Head to our GitHub repository to install it and start analysing suspicious emails today.</p>
 </div>
 <div class="ib-actions">
 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Install on GitHub <span aria-hidden="true">↗</span></a>
-<a href="mailto:phishield@mail.lu" class="btn btn-secondary">Ask us a question</a>
+<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read the docs</a>
 </div>
-</div>
-</div>
-</section>
-
-<!-- CONTACT (product) -->
-<section class="block section-alt">
-<div class="container">
-<div class="contact-wrap">
-<div class="reveal">
-<div class="section-head" style="margin-bottom:32px">
-<div class="section-label">Contact</div>
-<h2>Questions about Dionea?</h2>
-<p>Reach out — we'll help you get started.</p>
-</div>
-<div class="contact-card">
-<div class="contact-row">
-<div class="c-icon">📞</div>
-<div>
-<div class="c-label">Phone number</div>
-<div class="c-value"><a href="tel:+3522620238654">26 20 23 86 54</a></div>
-</div>
-</div>
-<div class="contact-row">
-<div class="c-icon">✉️</div>
-<div>
-<div class="c-label">Email address</div>
-<div class="c-value"><a href="mailto:phishield@mail.lu">phishield@mail.lu</a></div>
-</div>
-</div>
-</div>
-</div>
-<aside class="contact-aside reveal">
-<h3>Ready to deploy?</h3>
-<p>Install Dionea directly from GitHub, or contact us for a guided setup for your organization.</p>
-<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Go to GitHub <span aria-hidden="true">↗</span></a>
-</aside>
 </div>
 </div>
 </section>
@@ -732,89 +827,183 @@ Phishield Project · Dionea anti‑phishing tool — SMEs, associations, public 
 (function(){
 'use strict';
 
-/* ========== VUES + THEME ========== */
+/* ========== VUES + THEME + NAV SWITCH ========== */
 const views = {
 home: document.getElementById('view-home'),
 product: document.getElementById('view-product')
 };
+const navHome = document.getElementById('navLinksHome');
+const navProduct = document.getElementById('navLinksProduct');
 
 function showView(name){
-Object.values(views).forEach(v=>v.classList.remove('active'));
-if(views[name]) views[name].classList.add('active');
-document.body.classList.toggle('theme-green', name === 'product');
-document.title = name === 'product'
-? 'Dionea — Phishield anti‑phishing tool'
-: 'Phishield — Anti‑phishing protection';
-window.scrollTo({top:0,behavior:'smooth'});
-initReveal();
+  Object.values(views).forEach(v=>v.classList.remove('active'));
+  if(views[name]) views[name].classList.add('active');
+  document.body.classList.toggle('theme-green', name === 'product');
+  // Swap nav menus
+  navHome.style.display = name === 'home' ? 'flex' : 'none';
+  navProduct.style.display = name === 'product' ? 'flex' : 'none';
+  document.title = name === 'product'
+    ? 'Dionea — Phishield anti‑phishing tool'
+    : 'Phishield — Anti‑phishing protection';
+  window.scrollTo({top:0,behavior:'smooth'});
+  initReveal();
+  initCounters();
 }
 
 document.querySelectorAll('[data-nav]').forEach(el=>{
-el.addEventListener('click', e=>{
-e.preventDefault();
-showView(el.dataset.nav);
-closeMenu();
+  el.addEventListener('click', e=>{
+    e.preventDefault();
+    showView(el.dataset.nav);
+    closeMenu();
+  });
 });
+
+/* ========== ANCRES INTERNES (avec offset header) ========== */
+const header = document.getElementById('siteHeader');
+document.querySelectorAll('[data-scroll]').forEach(el=>{
+  el.addEventListener('click', e=>{
+    const id = el.getAttribute('href');
+    if(!id || !id.startsWith('#')) return;
+    // ensure we're on the right view
+    const targetView = el.dataset.scroll;
+    const currentView = document.querySelector('.view.active').id;
+    if(targetView === 'home' && currentView !== 'view-home') showView('home');
+    if(targetView === 'product' && currentView !== 'view-product') showView('product');
+    const target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 8;
+    setTimeout(()=>window.scrollTo({top, behavior:'smooth'}), 50);
+    closeMenu();
+  });
 });
 
 /* ========== HEADER SHADOW ========== */
-const header = document.getElementById('siteHeader');
 const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY > 8);
 window.addEventListener('scroll', onScroll, {passive:true});
 onScroll();
 
 /* ========== MOBILE MENU ========== */
 const burger = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
 function closeMenu(){
-burger.classList.remove('open');
-navLinks.classList.remove('open');
-burger.setAttribute('aria-expanded','false');
+  burger.classList.remove('open');
+  navHome.classList.remove('open');
+  navProduct.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
 }
 burger.addEventListener('click', ()=>{
-const open = navLinks.classList.toggle('open');
-burger.classList.toggle('open', open);
-burger.setAttribute('aria-expanded', String(open));
+  const activeNav = document.body.classList.contains('theme-green') ? navProduct : navHome;
+  const open = activeNav.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
 });
-navLinks.querySelectorAll('a,button').forEach(l=>l.addEventListener('click', closeMenu));
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
 
 /* ========== REVEAL ========== */
 let observer = null;
 function initReveal(){
-if(!('IntersectionObserver' in window)){
-document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
-return;
-}
-if(!observer){
-observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('visible');
-observer.unobserve(entry.target);
-}
-});
-}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-}
-document.querySelectorAll('.reveal:not(.visible)').forEach((el,i)=>{
-el.style.transitionDelay = (i % 3) * 0.08 + 's';
-observer.observe(el);
-});
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+    return;
+  }
+  if(!observer){
+    observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  }
+  document.querySelectorAll('.reveal:not(.visible)').forEach((el,i)=>{
+    el.style.transitionDelay = (i % 3) * 0.08 + 's';
+    observer.observe(el);
+  });
 }
 initReveal();
 
-/* ========== SMOOTH SCROLL AVEC OFFSET HEADER ========== */
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-anchor.addEventListener('click', function(e){
-const id = this.getAttribute('href');
-if(id === '#') return;
-const target = document.querySelector(id);
-if(!target) return;
-e.preventDefault();
-const offset = header.offsetHeight + 8;
-const top = target.getBoundingClientRect().top + window.scrollY - offset;
-window.scrollTo({top, behavior:'smooth'});
+/* ========== COUNTERS ANIMÉS (product) ========== */
+let countersDone = false;
+function animateCounter(el){
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1600;
+  const start = performance.now();
+  const startVal = 0;
+  function tick(now){
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(startVal + (target - startVal) * eased);
+    if(p < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(tick);
+}
+function initCounters(){
+  if(document.body.classList.contains('theme-green')) countersDone = false;
+  const counters = document.querySelectorAll('.counter');
+  if(!counters.length) return;
+  if(!('IntersectionObserver' in window)){
+    counters.forEach(c=>c.textContent = c.dataset.target);
+    return;
+  }
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && !e.target.dataset.done){
+        e.target.dataset.done = '1';
+        animateCounter(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c=>{
+    c.textContent = '0';
+    delete c.dataset.done;
+    io.observe(c);
+  });
+}
+initCounters();
+
+/* ========== PREVIEW TABS (product) ========== */
+const tabs = document.querySelectorAll('.preview-tab');
+const panels = document.querySelectorAll('.screenshot-panel');
+const previewUrl = document.getElementById('previewUrl');
+const previewCaption = document.getElementById('previewCaption');
+const captions = {
+  overview: 'Dionea dashboard — email analysis overview (illustrative).',
+  threats:  'Dionea threats view — flagged emails and risk levels (illustrative).',
+  reports:  'Dionea reports — trends and exportable summaries (illustrative).'
+};
+tabs.forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    const target = tab.dataset.tab;
+    tabs.forEach(t=>t.classList.toggle('active', t===tab));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===target));
+    if(previewUrl) previewUrl.textContent = `dionea.phishield.lu/dashboard/${target}`;
+    if(previewCaption) previewCaption.textContent = captions[target] || '';
+  });
 });
+
+/* ========== FAQ ACCORDION (product) ========== */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(o=>{
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+      o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+
+    if(!isOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
 });
 
 })();
