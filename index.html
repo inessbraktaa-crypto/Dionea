@@ -80,8 +80,6 @@ body.theme-dionea .topbar.scrolled{box-shadow:0 4px 20px rgba(11,61,44,.12)}
   text-decoration:none;color:inherit;background:none;border:none;
   cursor:pointer;font-family:inherit;flex-shrink:0;
 }
-
-/* Phishield mark (fallback emoji) */
 .brand-mark{
   width:44px;height:44px;border-radius:8px;
   background:var(--navy);color:var(--paper);
@@ -90,8 +88,6 @@ body.theme-dionea .topbar.scrolled{box-shadow:0 4px 20px rgba(11,61,44,.12)}
   transition:transform var(--transition);
 }
 .brand:hover .brand-mark{transform:rotate(-4deg)}
-
-/* Dionea mark — header */
 body.theme-dionea .brand-mark{
   width:60px;height:60px;
   background:#fff;border:1px solid #c8e3d2;
@@ -294,7 +290,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .ph-product-cta .btn-outline{color:var(--paper);border-color:rgba(255,255,255,.3)}
 .ph-product-cta .btn-outline:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#fff}
 
-/* CTA visual — LOGO DIONEA CLIQUABLE */
 .ph-cta-visual{
   width:340px;height:340px;background:#fff;
   border-radius:50%;display:flex;align-items:center;justify-content:center;
@@ -408,28 +403,43 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .dn-btn-ghost{background:transparent;color:#146b4a;border-color:#a8c9b5}
 .dn-btn-ghost:hover{background:#fff;border-color:#146b4a}
 
-/* Fact cards — cliquables pour les 6 layers */
+/* Fact cards — design plus aérien, sans flèche pour les non-cliquables */
 .dn-facts{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
   margin-top:64px;position:relative;z-index:1;
 }
 .dn-fact{
-  background:#fff;border:1px solid #c8e3d2;border-radius:12px;
-  padding:24px 26px;
+  background:rgba(255,255,255,.5);
+  border:none;
+  border-left:3px solid #c8e3d2;
+  border-radius:0;
+  padding:20px 24px 20px 22px;
   transition:all var(--transition);
-  display:block;
   text-decoration:none;
   color:inherit;
-  cursor:pointer;
   font-family:inherit;
   text-align:left;
   width:100%;
 }
-.dn-fact:hover{border-color:#22a06b;box-shadow:0 8px 24px rgba(11,61,44,.08);transform:translateY(-2px)}
-.dn-fact-icon{font-size:22px;margin-bottom:10px}
-.dn-fact-title{font-size:14px;font-weight:700;color:#0b3d2c;margin-bottom:4px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.dn-fact-title::after{content:"↓";color:#22a06b;font-size:14px;opacity:0;transition:opacity var(--transition),transform var(--transition)}
-.dn-fact:hover .dn-fact-title::after{opacity:1;transform:translateY(2px)}
+.dn-fact--link{
+  cursor:pointer;
+  border-left-color:#22a06b;
+}
+.dn-fact--link:hover{
+  background:#fff;
+  border-left-color:#146b4a;
+  transform:translateX(3px);
+}
+.dn-fact-icon{font-size:22px;margin-bottom:10px;line-height:1}
+.dn-fact-title{
+  font-size:14px;font-weight:700;color:#0b3d2c;margin-bottom:6px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.dn-fact-title .arr{
+  color:#22a06b;font-size:14px;font-weight:700;opacity:.7;
+  transition:transform var(--transition),opacity var(--transition);
+}
+.dn-fact--link:hover .arr{opacity:1;transform:translateX(3px)}
 .dn-fact-desc{font-size:.86rem;color:#5f7d6d;line-height:1.5}
 
 .dn-section{padding:96px 0;background:#eaf6ee}
@@ -452,37 +462,56 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .dn-head h2 .accent{color:#146b4a}
 .dn-head p{font-size:1.05rem;color:#5f7d6d;line-height:1.7}
 
-/* Preview + description texte */
-.dn-preview{max-width:1000px;margin:0 auto}
-.dn-preview-desc{
-  max-width:760px;margin:0 auto 40px;
-  background:#fff;border:1px solid #c8e3d2;
-  border-radius:12px;padding:28px 32px;
-  font-size:1rem;color:#2f4a3d;line-height:1.7;
+/* ============ HOW IT WORKS (Dionea) ============ */
+.dn-how{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  max-width:1000px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid #c8e3d2;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(11,61,44,.06);
 }
-.dn-preview-desc h4{
+.dn-how-step{
+  padding:36px 32px;
+  border-right:1px solid #c8e3d2;
+  position:relative;
+}
+.dn-how-step:last-child{border-right:none}
+.dn-how-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+  background:#eaf6ee;border:1px solid #c8e3d2;
+  color:#146b4a;font-family:'JetBrains Mono',monospace;
+  font-size:13px;font-weight:700;border-radius:50%;
+  margin-bottom:18px;
+}
+.dn-how-step h3{
   font-family:'Inter',sans-serif;
-  font-size:1.05rem;font-weight:800;color:#0b3d2c;
-  margin-bottom:14px;letter-spacing:-.01em;
-  display:flex;align-items:center;gap:10px;
+  font-size:1.08rem;font-weight:700;color:#0b3d2c;
+  margin-bottom:10px;letter-spacing:-.01em;line-height:1.3;
 }
-.dn-preview-desc h4::before{
-  content:"";width:8px;height:8px;background:#22a06b;border-radius:50%;
+.dn-how-step p{font-size:.93rem;color:#5f7d6d;line-height:1.6}
+.dn-how-step p strong{color:#0b3d2c;font-weight:700}
+.dn-how-step code{
+  font-family:'JetBrains Mono',monospace;
+  background:#eaf6ee;color:#146b4a;
+  padding:2px 7px;border-radius:4px;
+  font-size:.85em;
 }
-.dn-preview-desc ul{
-  list-style:none;display:grid;
-  grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:12px;
-}
-.dn-preview-desc li{
-  font-size:.94rem;color:#5f7d6d;line-height:1.5;
-  display:flex;align-items:flex-start;gap:8px;
-}
-.dn-preview-desc li::before{
-  content:"✓";color:#22a06b;font-weight:700;flex-shrink:0;
-}
-.dn-preview-desc strong{color:#0b3d2c;font-weight:700}
 
-/* Screenshot — image non coupée */
+/* ============ PREVIEW (2-col layout : screenshot + description) ============ */
+.dn-preview-layout{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:32px;
+  align-items:start;
+}
 .dn-screenshot{
   background:#fff;border:1px solid #c8e3d2;border-radius:14px;
   overflow:hidden;box-shadow:0 20px 48px rgba(11,61,44,.12);
@@ -505,12 +534,10 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .dn-screenshot-bar .url::before{content:"🔒";margin-right:6px;font-size:11px}
-
-/* On passe en contain pour ne pas couper le haut de l'image + padding */
 .dn-screenshot-image{
   aspect-ratio:16/10;
   background:#f2faf5;
-  padding:24px;
+  padding:20px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -527,11 +554,54 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
   box-shadow:0 4px 16px rgba(11,61,44,.08);
 }
 
+/* Description à droite du screenshot */
+.dn-preview-desc{
+  background:#fff;
+  border:1px solid #c8e3d2;
+  border-radius:14px;
+  padding:28px 26px;
+  box-shadow:0 8px 24px rgba(11,61,44,.06);
+}
+.dn-preview-desc h4{
+  font-family:'Inter',sans-serif;
+  font-size:1.05rem;font-weight:800;color:#0b3d2c;
+  margin-bottom:8px;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px;
+}
+.dn-preview-desc h4::before{
+  content:"";width:8px;height:8px;background:#22a06b;border-radius:50%;
+  flex-shrink:0;
+}
+.dn-preview-desc > p{
+  font-size:.93rem;color:#5f7d6d;line-height:1.6;
+  margin-bottom:18px;
+}
+.dn-preview-list{
+  list-style:none;display:flex;flex-direction:column;gap:14px;
+}
+.dn-preview-list li{
+  font-size:.9rem;color:#2f4a3d;line-height:1.5;
+  display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;
+  padding-bottom:14px;
+  border-bottom:1px dashed #dff0e6;
+}
+.dn-preview-list li:last-child{border-bottom:none;padding-bottom:0}
+.dn-preview-list .num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:700;color:#146b4a;
+  background:#eaf6ee;border:1px solid #c8e3d2;
+  border-radius:4px;padding:2px 6px;line-height:1.4;
+  align-self:start;margin-top:2px;
+}
+.dn-preview-list strong{color:#0b3d2c;font-weight:700;display:block;font-size:.93rem;margin-bottom:2px}
+.dn-preview-list .ldesc{color:#5f7d6d;font-size:.85rem;line-height:1.5;display:block}
+
 .dn-screenshot-caption{
-  text-align:center;margin-top:20px;
-  font-size:.9rem;color:#5f7d6d;font-style:italic;
+  text-align:center;margin-top:14px;
+  font-size:.85rem;color:#5f7d6d;font-style:italic;
 }
 
+/* Features list */
 .dn-features{
   display:flex;flex-direction:column;gap:1px;
   background:#c8e3d2;border:1px solid #c8e3d2;
@@ -612,6 +682,7 @@ body.theme-dionea .footer-brand .brand-mark{width:52px;height:52px;padding:5px}
   .ph-hero-side{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:32px}
   .ph-product-cta-grid{grid-template-columns:1fr;gap:40px}
   .ph-cta-visual{margin:0 auto;width:260px;height:260px}
+  .dn-preview-layout{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:900px){
   .ph-editorial{grid-template-columns:1fr;gap:40px}
@@ -620,7 +691,9 @@ body.theme-dionea .footer-brand .brand-mark{width:52px;height:52px;padding:5px}
   .dn-facts{grid-template-columns:1fr}
   .dn-feature{grid-template-columns:auto 1fr;gap:20px}
   .dn-feature-icon{display:none}
-  .dn-preview-desc ul{grid-template-columns:1fr}
+  .dn-how{grid-template-columns:1fr}
+  .dn-how-step{border-right:none;border-bottom:1px solid #c8e3d2;padding:28px 26px}
+  .dn-how-step:last-child{border-bottom:none}
 }
 @media(max-width:768px){
   .nav-menu{
@@ -650,8 +723,8 @@ body.theme-dionea .footer-brand .brand-mark{width:52px;height:52px;padding:5px}
   .ph-contact-card{padding:32px 24px}
   .dn-facts{margin-top:48px}
   .ph-cta-visual{width:220px;height:220px;padding:26px}
-  .dn-screenshot-image{padding:16px}
-  .dn-preview-desc{padding:22px 24px}
+  .dn-screenshot-image{padding:14px}
+  .dn-preview-desc{padding:24px 22px}
 }
 </style>
 </head>
@@ -679,6 +752,7 @@ body.theme-dionea .footer-brand .brand-mark{width:52px;height:52px;padding:5px}
 
 <ul class="nav-menu" id="navProduct" style="display:none">
 <li><button data-nav="home">← Phishield</button></li>
+<li><a href="#dn-how" data-scroll="product">How it works</a></li>
 <li><a href="#dn-preview" data-scroll="product">Preview</a></li>
 <li><a href="#dn-features" data-scroll="product">Features</a></li>
 <li><a href="#" class="nav-solid">Install ↗</a></li>
@@ -790,7 +864,6 @@ small organizations from phishing — without the enterprise overhead.
 <a href="#" class="btn btn-outline">Install</a>
 </div>
 </div>
-<!-- === LOGO DIONEA CLIQUABLE → page produit === -->
 <a href="#" class="ph-cta-visual reveal" data-nav="product" aria-label="Go to Dionea product page">
 <img src="logodionea.png" alt="Dionea logo">
 </a>
@@ -850,18 +923,18 @@ Runs on your infrastructure. Built for teams without a security department.
 <a href="#dn-preview" data-scroll="product" class="dn-btn dn-btn-ghost">See it in action</a>
 </div>
 
-<!-- Fact cards — 6 layers cliquable -->
+<!-- Fact cards — seules les cliquables ont une flèche -->
 <div class="dn-facts">
-<a href="#dn-features" class="dn-fact reveal" data-scroll="product">
+<a href="#dn-features" class="dn-fact dn-fact--link reveal" data-scroll="product">
 <div class="dn-fact-icon">🔍</div>
-<div class="dn-fact-title">6 analysis layers</div>
+<div class="dn-fact-title">6 analysis layers<span class="arr">→</span></div>
 <div class="dn-fact-desc">Each email is checked across six independent layers of inspection.</div>
 </a>
-<a href="#dn-features" class="dn-fact reveal" data-scroll="product">
+<div class="dn-fact reveal">
 <div class="dn-fact-icon">🏢</div>
 <div class="dn-fact-title">3 customer types</div>
 <div class="dn-fact-desc">Built for SMEs, associations, and public institutions.</div>
-</a>
+</div>
 <div class="dn-fact reveal">
 <div class="dn-fact-icon">🛡️</div>
 <div class="dn-fact-title">1 product</div>
@@ -872,7 +945,37 @@ Runs on your infrastructure. Built for teams without a security department.
 </div>
 </section>
 
-<section class="dn-section" id="dn-preview">
+<!-- ============ HOW IT WORKS (nouvelle section) ============ -->
+<section class="dn-section" id="dn-how">
+<div class="container">
+<div class="dn-head center reveal">
+<div class="dn-kicker">How it works</div>
+<h2>Three steps from a suspicious email to a full report<span class="accent">.</span></h2>
+<p>No configuration, no manual checks. You give Dionea an email address — it gives you back a complete analysis.</p>
+</div>
+
+<div class="dn-how reveal">
+<div class="dn-how-step">
+<div class="dn-how-num">01</div>
+<h3>Enter your email address</h3>
+<p>Forward the suspicious message to your Dionea inbox, or paste the sender's address directly in the dashboard. That's the only input required.</p>
+</div>
+<div class="dn-how-step">
+<div class="dn-how-num">02</div>
+<h3>Automatic analysis</h3>
+<p>Dionea runs all six inspection layers on the email — headers, <code>SPF/DKIM</code>, links, IP reputation, structure, and pipeline — in seconds.</p>
+</div>
+<div class="dn-how-step">
+<div class="dn-how-num">03</div>
+<h3>Read the full report</h3>
+<p>You get a clear verdict with <strong>every finding explained</strong>: which check failed, which link looks suspicious, which IP has a bad reputation, and the overall risk level.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ PREVIEW (2 colonnes : screenshot + description) ============ -->
+<section class="dn-section alt" id="dn-preview">
 <div class="container">
 <div class="dn-head center reveal">
 <div class="dn-kicker">Preview</div>
@@ -880,23 +983,9 @@ Runs on your infrastructure. Built for teams without a security department.
 <p>A look at the dashboard your team will use every day.</p>
 </div>
 
-<div class="dn-preview reveal">
-<!-- === TEXTE DESCRIPTIF DU DASHBOARD === -->
-<div class="dn-preview-desc">
-<h4>What the dashboard shows</h4>
-<p>
-The Dionea dashboard gives your team a single view of everything happening to your inbox at a glance:
-</p>
-<ul>
-<li><strong>Emails analysed</strong> — total volume processed automatically</li>
-<li><strong>Emails isolated</strong> — suspicious messages held for review</li>
-<li><strong>Threats detected</strong> — confirmed phishing attempts blocked</li>
-<li><strong>Pending review</strong> — emails awaiting a human decision</li>
-<li><strong>Recent threat detections</strong> — a live feed of the latest flagged emails</li>
-<li><strong>Risk level per email</strong> — from low to high, with clear reasoning</li>
-</ul>
-</div>
-
+<div class="dn-preview-layout reveal">
+<!-- Gauche : screenshot -->
+<div>
 <div class="dn-screenshot">
 <div class="dn-screenshot-bar">
 <div class="dots"><span></span><span></span><span></span></div>
@@ -908,10 +997,62 @@ The Dionea dashboard gives your team a single view of everything happening to yo
 </div>
 <p class="dn-screenshot-caption">Dionea dashboard — email analysis overview (illustrative).</p>
 </div>
+
+<!-- Droite : description -->
+<div class="dn-preview-desc">
+<h4>What the dashboard shows</h4>
+<p>Everything your team needs, on a single screen, at a glance.</p>
+<ul class="dn-preview-list">
+<li>
+<span class="num">KPI</span>
+<span>
+<strong>Emails analysed</strong>
+<span class="ldesc">Total volume processed automatically.</span>
+</span>
+</li>
+<li>
+<span class="num">KPI</span>
+<span>
+<strong>Emails isolated</strong>
+<span class="ldesc">Suspicious messages held for review.</span>
+</span>
+</li>
+<li>
+<span class="num">KPI</span>
+<span>
+<strong>Threats detected</strong>
+<span class="ldesc">Confirmed phishing attempts blocked.</span>
+</span>
+</li>
+<li>
+<span class="num">KPI</span>
+<span>
+<strong>Pending review</strong>
+<span class="ldesc">Emails awaiting a human decision.</span>
+</span>
+</li>
+<li>
+<span class="num">LIVE</span>
+<span>
+<strong>Recent threat detections</strong>
+<span class="ldesc">A live feed of the latest flagged emails.</span>
+</span>
+</li>
+<li>
+<span class="num">RISK</span>
+<span>
+<strong>Risk level per email</strong>
+<span class="ldesc">From low to high, with clear reasoning.</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 
-<section class="dn-section alt" id="dn-features">
+<!-- ============ FEATURES ============ -->
+<section class="dn-section" id="dn-features">
 <div class="container">
 <div class="dn-head center reveal">
 <div class="dn-kicker">Under the hood</div>
@@ -971,7 +1112,7 @@ The Dionea dashboard gives your team a single view of everything happening to yo
 </div>
 </section>
 
-<section class="dn-section">
+<section class="dn-section alt">
 <div class="container">
 <div class="dn-install reveal">
 <div class="dn-install-text">
