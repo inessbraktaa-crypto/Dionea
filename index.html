@@ -73,28 +73,45 @@ body.theme-dionea .topbar{background:rgba(234,246,238,.95);border-bottom:1px sol
 .topbar.scrolled{box-shadow:0 4px 20px rgba(12,26,43,.08)}
 body.theme-dionea .topbar.scrolled{box-shadow:0 4px 20px rgba(11,61,44,.12)}
 
-.nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
 
 .brand{
-  display:flex;align-items:center;gap:12px;
+  display:flex;align-items:center;gap:14px;
   text-decoration:none;color:inherit;background:none;border:none;
   cursor:pointer;font-family:inherit;flex-shrink:0;
 }
+
+/* Phishield mark (fallback emoji) */
 .brand-mark{
-  width:40px;height:40px;border-radius:6px;
+  width:44px;height:44px;border-radius:8px;
   background:var(--navy);color:var(--paper);
   display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;overflow:hidden;
+  font-size:22px;flex-shrink:0;overflow:hidden;
   transition:transform var(--transition);
 }
-.brand-mark img{width:100%;height:100%;object-fit:contain;padding:3px}
-body.theme-dionea .brand-mark{background:#fff;color:#146b4a;border-radius:8px;border:1px solid #c8e3d2}
 .brand:hover .brand-mark{transform:rotate(-4deg)}
+
+/* Dionea mark — agrandi dans le header */
+body.theme-dionea .brand-mark{
+  width:60px;height:60px;
+  background:#fff;border:1px solid #c8e3d2;
+  border-radius:12px;
+  padding:6px;
+  box-shadow:0 4px 12px rgba(11,61,44,.08);
+}
+body.theme-dionea .brand-mark img{
+  width:100%;height:100%;object-fit:contain;
+}
+
 .brand-name{
   font-family:'Source Serif 4',Georgia,serif;
-  font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--ink);
+  font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--ink);
 }
-body.theme-dionea .brand-name{font-family:'Inter',sans-serif;font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.02em}
+body.theme-dionea .brand-name{
+  font-family:'Inter',sans-serif;font-weight:900;font-size:24px;
+  color:var(--ink);letter-spacing:-.025em;
+}
+.brand-name .dot{color:var(--accent)}
 
 .nav-menu{display:flex;align-items:center;gap:4px;list-style:none}
 .nav-menu a,.nav-menu button{
@@ -191,8 +208,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 
 .ph-section{padding:96px 0}
 .ph-section.alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.ph-section.dark{background:var(--navy);color:var(--paper);border:none}
-.ph-section.dark h2,.ph-section.dark h3{color:var(--paper)}
 
 .ph-head{max-width:720px;margin-bottom:64px}
 .ph-head.center{margin-left:auto;margin-right:auto;text-align:center}
@@ -279,13 +294,15 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .ph-product-cta .btn-outline{color:var(--paper);border-color:rgba(255,255,255,.3)}
 .ph-product-cta .btn-outline:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#fff}
 
+/* CTA visual — LOGO DIONEA PLUS GRAND */
 .ph-cta-visual{
-  width:200px;height:200px;background:#fff;
+  width:340px;height:340px;background:#fff;
   border-radius:50%;display:flex;align-items:center;justify-content:center;
-  padding:20px;position:relative;
-  box-shadow:0 20px 48px rgba(0,0,0,.3);
+  padding:36px;position:relative;
+  box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 8px rgba(255,255,255,.08);
+  flex-shrink:0;
 }
-.ph-cta-visual img{width:100%;height:100%;object-fit:contain}
+.ph-cta-visual img{width:100%;height:100%;object-fit:contain;display:block}
 
 .ph-contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .ph-contact-info h3{
@@ -322,10 +339,10 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .ph-contact-card .btn-solid:hover{background:var(--navy)}
 
 /* =====================================================
-   DIONEA — PRODUCT (vert clair, propre, sans dark tech)
+   DIONEA — PRODUCT
    ===================================================== */
 .dn-hero{
-  padding:96px 0 88px;
+  padding:80px 0 80px;
   background:
     radial-gradient(ellipse at 75% 15%, rgba(34,160,107,.10) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 90%, rgba(20,107,74,.08) 0%, transparent 45%),
@@ -344,11 +361,27 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
   -webkit-mask-image:radial-gradient(ellipse at center, black 25%, transparent 75%);
 }
 .dn-hero-content{position:relative;z-index:1;max-width:920px}
+
+/* === LOGO DIONEA DANS LE HERO === */
+.dn-hero-logo{
+  width:160px;height:160px;
+  background:#fff;
+  border:1px solid #c8e3d2;
+  border-radius:28px;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  margin-bottom:32px;
+  box-shadow:0 16px 40px rgba(11,61,44,.14),0 0 0 8px rgba(255,255,255,.5);
+  transition:transform var(--transition);
+}
+.dn-hero-logo:hover{transform:translateY(-4px) rotate(-2deg)}
+.dn-hero-logo img{width:100%;height:100%;object-fit:contain;display:block}
+
 .dn-badge{
   display:inline-flex;align-items:center;gap:10px;
   background:#fff;border:1px solid #c8e3d2;
   color:#146b4a;font-size:12px;font-weight:700;letter-spacing:.06em;
-  padding:8px 16px;border-radius:999px;margin-bottom:32px;
+  padding:8px 16px;border-radius:999px;margin-bottom:28px;
   text-transform:uppercase;
 }
 .dn-badge::before{
@@ -382,7 +415,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .dn-btn-ghost{background:transparent;color:#146b4a;border-color:#a8c9b5}
 .dn-btn-ghost:hover{background:#fff;border-color:#146b4a}
 
-/* Feature pills under hero (structural facts, not fake stats) */
 .dn-facts{
   display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
   margin-top:64px;position:relative;z-index:1;
@@ -417,7 +449,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .dn-head h2 .accent{color:#146b4a}
 .dn-head p{font-size:1.05rem;color:#5f7d6d;line-height:1.7}
 
-/* Preview */
 .dn-preview{max-width:1000px;margin:0 auto}
 .dn-screenshot{
   background:#fff;border:1px solid #c8e3d2;border-radius:14px;
@@ -451,7 +482,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
   font-size:.9rem;color:#5f7d6d;font-style:italic;
 }
 
-/* Features list — numbered rows, honest descriptions */
 .dn-features{
   display:flex;flex-direction:column;gap:1px;
   background:#c8e3d2;border:1px solid #c8e3d2;
@@ -479,7 +509,6 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 .dn-feature-content p{font-size:.93rem;color:#5f7d6d;line-height:1.6}
 .dn-feature-icon{font-size:26px;opacity:.85}
 
-/* Install banner (light) */
 .dn-install{
   background:#fff;border:1px solid #c8e3d2;border-radius:14px;
   padding:52px 48px;
@@ -512,8 +541,9 @@ body.theme-dionea .nav-menu .nav-solid:hover{background:#0b3d2c!important}
 body.theme-dionea .site-footer{background:#ddf0e4;border-top:1px solid #c8e3d2;color:#5f7d6d}
 .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
 .footer-brand{display:flex;align-items:center;gap:12px}
-.footer-brand .brand-mark{width:36px;height:36px;font-size:18px}
-.footer-brand .brand-name{font-size:16px}
+.footer-brand .brand-mark{width:40px;height:40px;font-size:20px}
+body.theme-dionea .footer-brand .brand-mark{width:52px;height:52px;padding:5px}
+.footer-brand .brand-name{font-size:18px}
 .footer-copy{font-size:.85rem}
 
 /* =====================================================
@@ -530,7 +560,7 @@ body.theme-dionea .site-footer{background:#ddf0e4;border-top:1px solid #c8e3d2;c
   .ph-hero-grid{grid-template-columns:1fr;gap:56px}
   .ph-hero-side{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:32px}
   .ph-product-cta-grid{grid-template-columns:1fr;gap:40px}
-  .ph-cta-visual{margin:0 auto}
+  .ph-cta-visual{margin:0 auto;width:260px;height:260px}
 }
 @media(max-width:900px){
   .ph-editorial{grid-template-columns:1fr;gap:40px}
@@ -542,7 +572,7 @@ body.theme-dionea .site-footer{background:#ddf0e4;border-top:1px solid #c8e3d2;c
 }
 @media(max-width:768px){
   .nav-menu{
-    position:fixed;top:78px;left:0;right:0;
+    position:fixed;top:84px;left:0;right:0;
     flex-direction:column;align-items:stretch;
     background:var(--paper);border-bottom:1px solid var(--line);
     padding:16px 24px 24px;gap:4px;
@@ -555,16 +585,20 @@ body.theme-dionea .site-footer{background:#ddf0e4;border-top:1px solid #c8e3d2;c
   .nav-menu a,.nav-menu button{padding:12px 14px;font-size:15px;text-align:left}
   .nav-menu .nav-solid{text-align:center;margin-top:8px}
   .burger{display:block}
+  body.theme-dionea .brand-mark{width:48px;height:48px;padding:5px}
+  body.theme-dionea .brand-name{font-size:20px}
   .ph-hero{padding:64px 0 72px}
   .ph-hero-name{font-size:clamp(3.5rem,14vw,5.5rem)}
   .ph-section{padding:64px 0}
-  .dn-hero{padding:64px 0 72px}
+  .dn-hero{padding:56px 0 64px}
+  .dn-hero-logo{width:120px;height:120px;padding:14px;border-radius:22px;margin-bottom:24px}
   .dn-hero-name{font-size:clamp(4rem,17vw,7rem)}
   .dn-section{padding:64px 0}
   .dn-feature{padding:24px 20px}
   .dn-install{padding:40px 28px}
   .ph-contact-card{padding:32px 24px}
   .dn-facts{margin-top:48px}
+  .ph-cta-visual{width:220px;height:220px;padding:26px}
 }
 </style>
 </head>
@@ -574,10 +608,14 @@ body.theme-dionea .site-footer{background:#ddf0e4;border-top:1px solid #c8e3d2;c
 <header class="topbar" id="topbar">
 <div class="container">
 <nav class="nav">
-<button class="brand" data-nav="home" aria-label="Phishield home">
-<!-- Logo Phishield : fallback emoji -->
-<div class="brand-mark" aria-hidden="true">🛡️</div>
-<span class="brand-name">Phishield</span>
+<button class="brand" data-nav="home" aria-label="Phishield home" id="brandLink">
+<!-- Phishield fallback emoji -->
+<div class="brand-mark" aria-hidden="true" id="brandMarkHome">🛡️</div>
+<!-- Dionea logo (hidden by default, shown when theme-dionea) -->
+<div class="brand-mark" aria-hidden="true" id="brandMarkProduct" style="display:none">
+<img src="logodionea.png" alt="Dionea logo">
+</div>
+<span class="brand-name" id="brandName">Phishield</span>
 </button>
 
 <!-- Nav Home -->
@@ -640,7 +678,6 @@ small organizations from phishing — without the enterprise overhead.
 </div>
 </section>
 
-<!-- MISSION -->
 <section class="ph-section" id="ph-mission">
 <div class="container">
 <div class="ph-head reveal">
@@ -666,7 +703,6 @@ small organizations from phishing — without the enterprise overhead.
 </div>
 </section>
 
-<!-- PRINCIPLES -->
 <section class="ph-section alt" id="ph-principles">
 <div class="container">
 <div class="ph-head center reveal">
@@ -694,7 +730,6 @@ small organizations from phishing — without the enterprise overhead.
 </div>
 </section>
 
-<!-- PRODUCT CTA -->
 <section class="ph-product-cta">
 <div class="container">
 <div class="ph-product-cta-grid">
@@ -713,7 +748,6 @@ small organizations from phishing — without the enterprise overhead.
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="ph-section" id="ph-contact">
 <div class="container">
 <div class="ph-contact">
@@ -748,13 +782,18 @@ small organizations from phishing — without the enterprise overhead.
 </div>
 
 <!-- ===================================================================
-     VIEW : PRODUCT — DIONEA (vert clair)
+     VIEW : PRODUCT — DIONEA
      =================================================================== -->
 <div class="view" id="view-product">
 
 <section class="dn-hero">
 <div class="container">
 <div class="dn-hero-content reveal">
+<!-- === LOGO DIONEA EN GRAND DANS LE HERO === -->
+<div class="dn-hero-logo">
+<img src="logodionea.png" alt="Dionea logo">
+</div>
+
 <span class="dn-badge">Phishield product · v1.0</span>
 <h1 class="dn-hero-name">Dionea<span class="dot">.</span></h1>
 <p class="dn-hero-tagline">
@@ -766,7 +805,6 @@ Runs on your infrastructure. Built for teams without a security department.
 <a href="#dn-preview" data-scroll="product" class="dn-btn dn-btn-ghost">See it in action</a>
 </div>
 
-<!-- Structural facts (not fake stats) -->
 <div class="dn-facts">
 <div class="dn-fact reveal">
 <div class="dn-fact-icon">🔍</div>
@@ -788,7 +826,6 @@ Runs on your infrastructure. Built for teams without a security department.
 </div>
 </section>
 
-<!-- PREVIEW (single screenshot) -->
 <section class="dn-section" id="dn-preview">
 <div class="container">
 <div class="dn-head center reveal">
@@ -804,7 +841,6 @@ Runs on your infrastructure. Built for teams without a security department.
 <div class="url">dionea.phishield.lu/dashboard</div>
 </div>
 <div class="dn-screenshot-image">
-<!-- === Screenshot === -->
 <img src="Previewdashboard.png" alt="Dionea dashboard preview">
 </div>
 </div>
@@ -813,7 +849,6 @@ Runs on your infrastructure. Built for teams without a security department.
 </div>
 </section>
 
-<!-- FEATURES -->
 <section class="dn-section alt" id="dn-features">
 <div class="container">
 <div class="dn-head center reveal">
@@ -874,7 +909,6 @@ Runs on your infrastructure. Built for teams without a security department.
 </div>
 </section>
 
-<!-- INSTALL BANNER -->
 <section class="dn-section">
 <div class="container">
 <div class="dn-install reveal">
@@ -894,13 +928,15 @@ Runs on your infrastructure. Built for teams without a security department.
 
 </main>
 
-<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<div class="brand-mark" aria-hidden="true">🛡️</div>
-<span class="brand-name">Phishield</span>
+<div class="brand-mark" aria-hidden="true" id="footerMarkHome">🛡️</div>
+<div class="brand-mark" aria-hidden="true" id="footerMarkProduct" style="display:none">
+<img src="logodionea.png" alt="Dionea logo">
+</div>
+<span class="brand-name" id="footerName">Phishield</span>
 </div>
 <div class="footer-copy">
 Phishield Project · Dionea anti‑phishing tool — SMEs, associations, public institutions.
@@ -921,12 +957,33 @@ const views = {
 const navHome = document.getElementById('navHome');
 const navProduct = document.getElementById('navProduct');
 
+/* Brand dynamic elements (header + footer) */
+const brandMarkHome = document.getElementById('brandMarkHome');
+const brandMarkProduct = document.getElementById('brandMarkProduct');
+const brandName = document.getElementById('brandName');
+const footerMarkHome = document.getElementById('footerMarkHome');
+const footerMarkProduct = document.getElementById('footerMarkProduct');
+const footerName = document.getElementById('footerName');
+
+function setBrand(theme){
+  const isProduct = theme === 'product';
+  // Header
+  brandMarkHome.style.display = isProduct ? 'none' : 'flex';
+  brandMarkProduct.style.display = isProduct ? 'flex' : 'none';
+  brandName.innerHTML = isProduct ? 'Dionea<span class="dot">.</span>' : 'Phishield';
+  // Footer
+  footerMarkHome.style.display = isProduct ? 'none' : 'flex';
+  footerMarkProduct.style.display = isProduct ? 'flex' : 'none';
+  footerName.innerHTML = isProduct ? 'Dionea<span class="dot">.</span>' : 'Phishield';
+}
+
 function showView(name){
   Object.values(views).forEach(v=>v.classList.remove('active'));
   if(views[name]) views[name].classList.add('active');
   document.body.classList.toggle('theme-dionea', name === 'product');
   navHome.style.display = name === 'home' ? 'flex' : 'none';
   navProduct.style.display = name === 'product' ? 'flex' : 'none';
+  setBrand(name);
   document.title = name === 'product'
     ? 'Dionea — Phishield anti‑phishing tool'
     : 'Phishield — Anti‑phishing protection';
